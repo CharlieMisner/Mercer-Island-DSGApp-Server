@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+    <div class = "email-body-container" style = "padding:20px; overflow-y: auto; overflow-x: hide">
+    <table style = "font-size:12px">
+      <tr>
+        <td><strong>Project:</strong></td>
+        <td style = "color:red; padding-left: 30px"><strong>{{projectName}}</strong></td>
+      </tr>
+      <tr>
+        <td><strong>Location:</strong></td>
+        <td style = "color:red; padding-left: 30px"><strong>{{address}}</strong></td>
+      </tr>
+      <tr>
+        <td><strong></strong></td>
+        <td style = "padding-left: 30px"><strong>Mercer Island, WA 98040</strong></td>
+      </tr>
+      <tr>
+        <td><strong>Permit Application Number:</strong></td>
+        <td style = "color:red; padding-left: 30px"><strong>{{permitNumber}}</strong></td>
+      </tr>
+    </table>
+    <p style = "font-size:12px">
+      The City of Mercer Island Development Services has completed a building plan review 
+      of your ePlan documents for conformance with the following codes, as adopted and 
+      amended by the State of Washington and the City of Mercer Island:
+    </p>
+    <ul style = "font-size:12px; font-style:italic">
+      <li>2015 International Residential Code (IRC)</li>
+      <li>2015 International Building Code (IBC), as applicable</li>
+      <li>2015 Washington State Energy Code, WAC 51-11 (WSEC)</li>
+      <li>Minimum Design Loads for Buildings and Other Structures, ASCE 7-10 (ASCE)</li>
+      <li>2012 Special Design Provisions for Wind and Seismic (SDPWS)</li>
+      <li>Mercer Island City Code (MICC)</li>
+    </ul>
+    <p style = "font-size:12px">
+      The Correction Drawing File can be reviewed and downloaded from the MIePlan Cloud here: 
+    </p>
+    <p style = "font-size:12px">
+      <a style = "color:blue" href = "https://mieplan.mercergov.org/adobe/eplan/~CurrentSharedReviews/{{project.permitNumber}}-{{project.submissionNumber}}-PLANS_review.pdf">
+      https://mieplan.mercergov.org/adobe/eplan/~CurrentSharedReviews/{{permitNumber}}-{{submissionNumber}}-PLANS_review.pdf
+      </a>
+    </p>
+    <p style = "font-size:12px">
+      To access the commented file, you will need to enter “<strong>eguest</strong>” as the User Name 
+      and “<strong>@mercer123</strong>” for the Password. Please note, you can send this link to your 
+      sub-consultants for their input and replies.
+    </p>
+    <p style = "font-size:12px">
+      Please respond to each comment using the reply functionality in the comments navigation pane. 
+      You must use Adobe Reader or Acrobat to reply to the comments. The easiest way to 
+      do this is to right click each comment and select “reply”. Click on the “Publish 
+      Comments” button in Reader or Acrobat in order to post your replies. For additional 
+      information on the MIePlan review process, including tutorial videos and detailed 
+      submittal checklists, browse to 
+      <a style = "color:blue" href = "http://www.mercergov.org/Page.asp?NavID=2619">http://www.mercergov.org/Page.asp?NavID=2619</a>.
+    </p>
+    <p style = "font-size:12px">
+      After each review discipline has completed their review (see below), and you have 
+      replied and published your response to each of the comments, you may resubmit 
+      the corrected project documents. Please upload a new, complete set of corrected 
+      drawings and any other supplemental documentation to the City of Mercer Island 
+      FTP site here: <a style = "color:blue" href = "https://sftp.mercergov.org/thinclient/Login.aspx">
+      Mercer Island FTP Site</a>. Enter “<strong>guest</strong>” as username, and “<strong>eplan</strong>” as the password.
+    </p>
+    <p style = "font-size:12px">
+      It is important that each of the comments have a reply. Your resubmittal date and
+      review timeline begins only when all of the replies have been made and a new, complete 
+      set of corrected drawings and other supporting information is provided. 
+    </p>
+    <p style = "font-size:12px">
+      Please see below for current review status (you can also check online at 
+      <a style = "color:blue" href = "https://permitsearch.mybuildingpermit.com/">
+        https://permitsearch.mybuildingpermit.com</a>):
+    </p>
+    <p style = "font-size:12px">
+      Please DO NOT reply to this email or contact me regarding the status of the project. 
+      Our Customer Service Team will be better able to help you. You can reach them at 
+      (206) 275-7605.
+    </p>
+    <table style = "width: 200px; font-size:12px; margin-left: 20px; border-collapse: collapse; border: 1px solid red">
+      <tr style = "border: 1px solid black">
+        <td style = "border: 1px solid black"><strong>Building:</strong></td>
+        <td style = "color: red; border: 1px solid black">{{buildingStatus}}</td>
+      </tr>
+      <tr style = "border: 1px solid black">
+        <td style = "border: 1px solid black"><strong>Planning:</strong></td>
+        <td style = "color: red; border: 1px solid black">{{planningStatus}}</td>
+      </tr>
+      <tr style = "border: 1px solid black">
+        <td style = "border: 1px solid black"><strong>Engineering:</strong></td>
+        <td style = "color: red; border: 1px solid black">{{engineeringStatus}}</td>
+      </tr>
+      <tr style = "border: 1px solid black">
+        <td style = "border: 1px solid black"><strong>Tree:</strong></td>
+        <td style = "color: red; border: 1px solid black">{{treeStatus}}</td>
+      </tr>
+      <tr style = "border: 1px solid black">
+        <td style = "border: 1px solid black"><strong>Fire:</strong></td>
+        <td style = "color: red; border: 1px solid black">{{fireStatus}}</td>
+      </tr>
+    </table>
+    <ul style = "font-size:10px">
+      <li>
+        WCI (Waiting for Customer Information): the comments from that review 
+        discipline are included within the ePlan drawing file noted above.
+      </li>
+      <li>
+        IN REVIEW: the review discipline has not completed their review, and additional 
+        comments may be published to the ePlan drawing file.
+      </li>
+      <li>
+        APPROVED: indicates there are no correction items for that review discipline
+      </li>
+      <li>
+        NA (Not applicable): Review discipline is not scheduled to review this project.
+      </li>
+    </ul>
+    <p style = "font-size:12px">
+      After each review discipline has completed their review (there are no disciplines
+      noted as IN REVIEW), you may resubmit your corrected ePlan. Ensure that you have 
+      replied to each of the correction comments—remember to click “Publish”—and made the 
+      required changes to your project. Upload the complete revised drawing set with any 
+      additional supporting information to the  <a style = "color:blue" href = "https://sftp.mercergov.org/thinclient/Login.aspx">
+      Mercer Island FTP Site</a>. You will be contacted 
+      by email within 3 working days acknowledging receipt of your resubmittal.
+    </p>
+  </div>
+</html>
