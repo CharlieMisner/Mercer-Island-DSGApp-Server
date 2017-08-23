@@ -25,7 +25,7 @@ SECRET_KEY = '9l8h8*#9vg4(&9#k5tos-0$%8m=5k)==+3h3uoc!y-kgyg0yw-'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['mi-dsg-charliemisner.c9users.io']
 
 
 # Application definition
