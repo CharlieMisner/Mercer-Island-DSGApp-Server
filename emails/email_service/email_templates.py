@@ -4,23 +4,28 @@ from django.template import RequestContext
 import django
 import requests
 
-class TestEmail():
+class Email():
+    
+    def __init__(self, inputs):
+        
+        self.inputs = inputs
 
     def send(self):
-        print('test email')
+        
+        print('Send Email')
         address = '2818 67th Ave SE'
         emailTemplate = loader.render_to_string(
             'testEmail.html',
             {
-                'permitNumber': '1612-159',
-                'projectName': 'Chen',
-                'address': address,
-                'submissionNumber': 'SUB1',
-                'planningStatus': 'WCI',
-                'buildingStatus': 'APPROVED',
-                'engineeringStatus': 'WCI',
-                'treeStatus': 'IN REVIEW',
-                'fireStatus': 'WCI',
+                'permitNumber': self.inputs['permitNumber'],
+                'projectName': self.inputs['projectName'],
+                'address': self.inputs['address'],
+                'submissionNumber': self.inputs['submissionNumber'],
+                'planningStatus': self.inputs['planningStatus'],
+                'buildingStatus': self.inputs['buildingStatus'],
+                'engineeringStatus': self.inputs['engineeringStatus'],
+                'treeStatus': self.inputs['treeStatus'],
+                'fireStatus': self.inputs['fireStatus'],
             }
         )
         url = 'https://api.mailgun.net/v3/{}/messages'.format('sandboxf29bbdf6a07246b8b96099d769e570d5.mailgun.org')
