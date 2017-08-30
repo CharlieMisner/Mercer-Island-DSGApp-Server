@@ -28,11 +28,14 @@ class Email():
                 'fireStatus': self.inputs['fireStatus'],
             }
         )
+        sendTo = str(self.inputs['contactEmail']+'; '+self.inputs['reviewerEmail'])
+        print(sendTo)
+
         url = 'https://api.mailgun.net/v3/{}/messages'.format('sandboxf29bbdf6a07246b8b96099d769e570d5.mailgun.org')
         auth = ('api', 'key-11dbb88fd203333af892beaa9f408005')
         data = {
-            'from': 'Charlie Misner <mailgun@{}>'.format('sandboxf29bbdf6a07246b8b96099d769e570d5.mailgun.org'),
-            'to': 'charliemisner@gmail.com; charlie.misner@mercergov.org',
+            'from': 'Mercer Island Permits <mailgun@{}>'.format('sandboxf29bbdf6a07246b8b96099d769e570d5.mailgun.org'),
+            'to': sendTo,
             'subject': 'Building Review Comments for '+ address,
             'text': 'Plaintext content',
             'html': emailTemplate
