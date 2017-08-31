@@ -13,7 +13,7 @@ class Email():
     def send(self):
         
         print('Send Email')
-        address = '2818 67th Ave SE'
+        address = self.inputs['address']
         emailTemplate = loader.render_to_string(
             'testEmail.html',
             {
@@ -28,17 +28,27 @@ class Email():
                 'fireStatus': self.inputs['fireStatus'],
             }
         )
-        sendTo = str(self.inputs['contactEmail']+'; '+self.inputs['reviewerEmail'])
-        print(sendTo)
+        sendToReviewer = str(self.inputs['reviewerEmail'])
+        sendToContact = str(self.inputs['contactEmail'])
+        print(sendToContact)
 
-        url = 'https://api.mailgun.net/v3/{}/messages'.format('sandboxf29bbdf6a07246b8b96099d769e570d5.mailgun.org')
-        auth = ('api', 'key-11dbb88fd203333af892beaa9f408005')
-        data = {
-            'from': 'Mercer Island Permits <mailgun@{}>'.format('sandboxf29bbdf6a07246b8b96099d769e570d5.mailgun.org'),
-            'to': sendTo,
+        url = 'https://api.mailgun.net/v3/{}/messages'.format('sandboxd306d296f1724c9380f0d87f2c9e160e.mailgun.org')
+        auth = ('api', 'key-52cf3a9108594d34c127c1ad7def07d5')
+        dataReviewer = {
+            'from': 'Mercer Island Permits <mailgun@{}>'.format('sandboxd306d296f1724c9380f0d87f2c9e160e.mailgun.org'),
+            'to': sendToReviewer,
             'subject': 'Building Review Comments for '+ address,
             'text': 'Plaintext content',
             'html': emailTemplate
         }
-        response = requests.post(url, auth=auth, data=data)
+        dataContact = {
+            'from': 'Mercer Island Permits <mailgun@{}>'.format('sandboxd306d296f1724c9380f0d87f2c9e160e.mailgun.org'),
+            'to': sendToContact,
+            'subject': 'Building Review Comments for '+ address,
+            'text': 'Plaintext content',
+            'html': emailTemplate
+        }
+        response = requests.post(url, auth=auth, data=dataReviewer)
         response.raise_for_status()
+        response1 = requests.post(url, auth=auth, data=dataContact)
+        response1.raise_for_status()
